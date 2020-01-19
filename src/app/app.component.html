@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12  col-lg-6 col-xs-12 col-sm-12" style=" margin: auto;display: flex; padding: 20px; border: 1px solid lightgray;">
+      <div class="col-md-4">
+        <div class="form-group">
+          <select [(ngModel)]="stateValue" (ngModelChange)="getDistrict(stateValue)" style=" margin: auto; text-align: center;padding: 10px; "> 
+            <option *ngFor="let obj of state_details_arr">{{obj}}</option>
+          </select>
+        </div>
+    
+      </div>
+      <div class="col-md-4">
+    
+        <div class="form-group">
+          <select *ngIf="city_list.length > 0" [(ngModel)]="city_name" (ngModelChange)="getCityName()" style=" margin: auto;position: relative; text-align: center;padding: 10px;left: 10px; "> 
+            <option *ngFor="let obj of city_list">{{obj}}</option>
+          </select>
+        </div>
+      </div>
+     
+      
+    </div>
+    <div class="col-12-md  col-6-lg col-xs-12 col-sm-12">
+      <agm-map [latitude]="location?.lat" [longitude]="location?.lng" [zoom]="8" style="width: 100%;   height: 300px;   margin: auto;">
+        <agm-marker [latitude]="location?.lat" [longitude]="location?.lng">
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+<router-outlet></router-outlet>
